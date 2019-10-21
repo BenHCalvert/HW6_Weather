@@ -8,10 +8,13 @@ var weatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + c
 $("#search").on('click', function () {
     event.preventDefault();
     console.log("search duh");
-    var cityInput = $('#search-input').val();
-    // cityInput = cityInput.split(' ');
-    // cityInput = cityInput.join('-');
-    console.log(cityInput);
+)
+    $.ajax({
+        url: weatherURL,
+        method: "GET"
+      }).then(function (response) {
+        console.log(response);
+        console.log(weatherURL);
 });
 
 // city history to local storage.
