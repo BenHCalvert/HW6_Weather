@@ -1,4 +1,4 @@
-// UV Index
+
 var apiKey = 0457b30a523cda1e67defc7edc1045b8 ;
 var cityInput = cityInput.val().trim();
 var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey ;
