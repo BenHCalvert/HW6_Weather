@@ -4,7 +4,7 @@ var cityInput = cityInput.val().trim();
 var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey ;
 var weatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityInput + "&units=metric&cnt=5" + APIKey;
 
-// search button on click
+// search button on click WEATHER
 $("#search").on('click', function () {
     event.preventDefault();
     console.log("search duh");
@@ -15,6 +15,19 @@ $("#search").on('click', function () {
       }).then(function (response) {
         console.log(response);
         console.log(weatherURL);
+});
+
+// search button on click UV
+$("#search").on('click', function () {
+    event.preventDefault();
+    console.log("search duh");
+)
+    $.ajax({
+        url: uvURL,
+        method: "GET"
+      }).then(function (response) {
+        console.log(response);
+        console.log(uvURL);
 });
 
 // city history to local storage.
