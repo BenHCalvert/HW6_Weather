@@ -1,6 +1,6 @@
 
-var apiKey = 0457b30a523cda1e67defc7edc1045b8 ;
-var cityInput = cityInput.val().trim();
+var apiKey = "0457b30a523cda1e67defc7edc1045b8" ;
+var cityInput = cityInput.val();
 var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey ;
 var weatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + cityInput + "&units=metric&cnt=5" + APIKey;
 
@@ -8,26 +8,28 @@ var weatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + c
 $("#search").on('click', function () {
     event.preventDefault();
     console.log("search duh");
-)
+// Call the weather API  - Forecast
     $.ajax({
         url: weatherURL,
         method: "GET"
       }).then(function (response) {
         console.log(response);
         console.log(weatherURL);
+    });
 });
 
-// search button on click UV
+// Call the weather API  - UV
 $("#search").on('click', function () {
     event.preventDefault();
     console.log("search duh");
-)
+
     $.ajax({
         url: uvURL,
         method: "GET"
       }).then(function (response) {
         console.log(response);
         console.log(uvURL);
+    });
 });
 
 // city history to local storage.
