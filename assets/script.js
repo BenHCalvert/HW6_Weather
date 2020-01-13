@@ -29,6 +29,12 @@ let forecastTemp3 = $('forecastTemp3');
 let forecastTemp4 = $('forecastTemp4');
 let forecastTemp5 = $('forecastTemp5');
 
+let forecastHum1 = $('forecastHum1');
+let forecastHum2 = $('forecastHum2');
+let forecastHum3 = $('forecastHum3');
+let forecastHum4 = $('forecastHum4');
+let forecastHum5 = $('forecastHum5');
+
 // search button on click WEATHER
 $("#search").on('click', function () {
     event.preventDefault();
