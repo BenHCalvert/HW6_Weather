@@ -1,8 +1,11 @@
-
+// Set variables for API AJAX calls
 const apiKey = '0457b30a523cda1e67defc7edc1045b8' ;
 let uvURL = "http://api.openweathermap.org/data/2.5/uvi?APPID=" + apiKey;
 let forecastURL = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&APPID=" +  apiKey + '&q='
 let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=" +  apiKey + '&q=';
+
+// Set jQuery variables for DOM elements
+let dispCurrentCity = $('#current-weather-title')
 
 // search button on click WEATHER
 $("#search").on('click', function () {
@@ -12,6 +15,7 @@ $("#search").on('click', function () {
     forecastAjax(city);
 });
 
+// Current weather AJAX/Fx Call and UV Fx Call
 function weatherAjax (city) {
     $.ajax({
         url: weatherURL + city,
@@ -21,9 +25,13 @@ function weatherAjax (city) {
         
         // call UV api using latlon response from weather
         uvAjax(response.coord.lat, response.coord.lon);
+
+        // Add response to the DOM
+        dispCurrentCity.text(`Current Weather | ${response.name}`) 
     });
 };
 
+// Forecast AJAX/Fx Call
 function forecastAjax (city) {
     $.ajax({
         url: forecastURL + city,
@@ -36,6 +44,7 @@ function forecastAjax (city) {
     });
 };
 
+// UV AJAX
 function uvAjax (lat, lon) {
     let latlon = `&lat=${lat}&lon=${lon}`
     $.ajax({
@@ -44,14 +53,7 @@ function uvAjax (lat, lon) {
       }).then(function (response) {
         console.log(response);
     });
-}
-
-// Call the weather API  - UV
-// $("#search").on('click', function () {
-//     event.preventDefault();
-//     console.log("search duh");
-
-// });
+};
 
 // city history to local storage.
 function storeCity(city) {
@@ -62,8 +64,13 @@ function storeCity(city) {
 };
 
 
+
+
+// **************************
+// Notes:
 // date_txt/dt_txt --> field in the 5 day forecast with the day and military time. Isolate the time and filter by the time. 
 
 // .split() <-- can give this a charecter on which to split, give this a space and aplit into an array of date and time
 
 // filter() set up a filter statement targeting the time and filter for objects with the same time, this will turn the forecast object 
+
