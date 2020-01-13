@@ -75,29 +75,29 @@ function forecastAjax(city) {
         let fiveDays = response.list.filter(function (obj) {
             return obj.dt_txt.split(' ')[1] === '15:00:00';
 
-            forecastDate1.text(`Date: ${response.dt_txt.split(' ')[0]}`)
-            forecastDate2.text('test')
-            forecastDate3
-            forecastDate4
-            forecastDate5
+            forecastDate1.text(`Date: ${response[0].dt_txt.split(' ')[0]}`)
+            forecastDate2.text(`Date: ${response[1].dt_txt.split(' ')[0]}`)
+            forecastDate3.text(`Date: ${response[2].dt_txt.split(' ')[0]}`)
+            forecastDate4.text(`Date: ${response[3].dt_txt.split(' ')[0]}`)
+            forecastDate5.text(`Date: ${response[4].dt_txt.split(' ')[0]}`)
 
-            forecastIcon1
-            forecastIcon2
-            forecastIcon3
-            forecastIcon4
-            forecastIcon5
+            forecastIcon1.response[0].weather.0.icon
+            forecastIcon2.response[1].weather.0.icon
+            forecastIcon3.response[2].weather.0.icon
+            forecastIcon4.response[3].weather.0.icon
+            forecastIcon5.response[4].weather.0.icon
 
-            forecastTemp1
-            forecastTemp2
-            forecastTemp3
-            forecastTemp4
-            forecastTemp5
+            forecastTemp1.text(`Temperature: ${response[0].main.temp}°F`);
+            forecastTemp2.text(`Temperature: ${response[1].main.temp}°F`);
+            forecastTemp3.text(`Temperature: ${response[2].main.temp}°F`);
+            forecastTemp4.text(`Temperature: ${response[3].main.temp}°F`);
+            forecastTemp5.text(`Temperature: ${response[4].main.temp}°F`);
 
-            forecastHum1
-            forecastHum2
-            forecastHum3
-            forecastHum4
-            forecastHum5
+            forecastHum1.text(`Humidity: ${response[0].main.humidity}%`);
+            forecastHum2.text(`Humidity: ${response[1].main.humidity}%`);
+            forecastHum3.text(`Humidity: ${response[2].main.humidity}%`);
+            forecastHum4.text(`Humidity: ${response[3].main.humidity}%`);
+            forecastHum5.text(`Humidity: ${response[4].main.humidity}%`);
         });
         console.log(fiveDays);
     });
