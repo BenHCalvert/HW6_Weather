@@ -1,8 +1,8 @@
 // Set variables for API AJAX calls
-const apiKey = '0457b30a523cda1e67defc7edc1045b8' ;
+const apiKey = '0457b30a523cda1e67defc7edc1045b8';
 let uvURL = "http://api.openweathermap.org/data/2.5/uvi?APPID=" + apiKey;
-let forecastURL = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&APPID=" +  apiKey + '&q='
-let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=" +  apiKey + '&q=';
+let forecastURL = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&APPID=" + apiKey + '&q='
+let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=" + apiKey + '&q=';
 
 // Set jQuery variables for DOM elements
 let dispCurrentCity = $('#current-weather-title');
@@ -44,13 +44,13 @@ $("#search").on('click', function () {
 });
 
 // Current weather AJAX/Fx Call and UV Fx Call
-function weatherAjax (city) {
+function weatherAjax(city) {
     $.ajax({
         url: weatherURL + city,
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        
+
         // call UV api using latlon response from weather
         uvAjax(response.coord.lat, response.coord.lon);
 
@@ -64,25 +64,52 @@ function weatherAjax (city) {
 };
 
 // Forecast AJAX/Fx Call
-function forecastAjax (city) {
+// date_txt/dt_txt --> field in the 5 day forecast with the day and military time. Isolate the time and filter by the time.
+// .split() <-- can give this a charecter on which to split, give this a space and aplit into an array of date and time
+// filter() set up a filter statement targeting the time and filter for objects with the same time, this will turn the forecast object 
+function forecastAjax(city) {
     $.ajax({
         url: forecastURL + city,
         method: "GET"
     }).then(function (response) {
-        let fiveDays = response.list.filter(function(obj){
-            return obj.dt_txt.split(' ')[1] === '15:00:00'
+        let fiveDays = response.list.filter(function (obj) {
+            return obj.dt_txt.split(' ')[1] === '15:00:00';
+
+            forecastDate1.text(`Date: ${response.dt_txt.split(' ')[0]}`)
+            forecastDate2.text('test')
+            forecastDate3
+            forecastDate4
+            forecastDate5
+
+            forecastIcon1
+            forecastIcon2
+            forecastIcon3
+            forecastIcon4
+            forecastIcon5
+
+            forecastTemp1
+            forecastTemp2
+            forecastTemp3
+            forecastTemp4
+            forecastTemp5
+
+            forecastHum1
+            forecastHum2
+            forecastHum3
+            forecastHum4
+            forecastHum5
         });
         console.log(fiveDays);
     });
 };
 
 // UV AJAX
-function uvAjax (lat, lon) {
+function uvAjax(lat, lon) {
     let latlon = `&lat=${lat}&lon=${lon}`
     $.ajax({
         url: uvURL + latlon,
         method: "GET"
-      }).then(function (UVresponse) {
+    }).then(function (UVresponse) {
         console.log('UV response', UVresponse);
     });
 };
@@ -90,19 +117,7 @@ function uvAjax (lat, lon) {
 // city history to local storage.
 function storeCity(city) {
     var currentCity = $('<li>').text(city);
-    currentCity.attr({type: 'button', class:'storeCity', name:city});
+    currentCity.attr({ type: 'button', class: 'storeCity', name: city });
     $('#cities').append(currentCity);
     localStorage.setItem(city, city);
 };
-
-
-
-
-// **************************
-// Notes:
-// date_txt/dt_txt --> field in the 5 day forecast with the day and military time. Isolate the time and filter by the time. 
-
-// .split() <-- can give this a charecter on which to split, give this a space and aplit into an array of date and time
-
-// filter() set up a filter statement targeting the time and filter for objects with the same time, this will turn the forecast object 
-
