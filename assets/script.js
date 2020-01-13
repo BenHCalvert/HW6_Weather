@@ -11,6 +11,24 @@ let dispCurrentHum = $('#currenthum');
 let dispCurrentWind = $('#currentwind');
 let dispCurrentUV = $('#currentUV');
 
+let forecastDate1 = $('#date1');
+let forecastDate2 = $('#date2');
+let forecastDate3 = $('#date3');
+let forecastDate4 = $('#date4');
+let forecastDate5 = $('#date5');
+
+let forecastIcon1 = $('icon1');
+let forecastIcon2 = $('icon2');
+let forecastIcon3 = $('icon3');
+let forecastIcon4 = $('icon4');
+let forecastIcon5 = $('icon5');
+
+let forecastTemp1 = $('forecastTemp1');
+let forecastTemp2 = $('forecastTemp2');
+let forecastTemp3 = $('forecastTemp3');
+let forecastTemp4 = $('forecastTemp4');
+let forecastTemp5 = $('forecastTemp5');
+
 // search button on click WEATHER
 $("#search").on('click', function () {
     event.preventDefault();
