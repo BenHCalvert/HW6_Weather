@@ -5,7 +5,11 @@ let forecastURL = "https://api.openweathermap.org/data/2.5/forecast?units=imperi
 let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&APPID=" +  apiKey + '&q=';
 
 // Set jQuery variables for DOM elements
-let dispCurrentCity = $('#current-weather-title')
+let dispCurrentCity = $('#current-weather-title');
+let dispCurrentTemp = $('#currenttemp');
+let dispCurrentHum = $('#currenthum');
+let dispCurrentWind = $('#currentwind');
+let dispCurrentUV = $('#currentUV');
 
 // search button on click WEATHER
 $("#search").on('click', function () {
@@ -26,8 +30,12 @@ function weatherAjax (city) {
         // call UV api using latlon response from weather
         uvAjax(response.coord.lat, response.coord.lon);
 
-        // Add response to the DOM
-        dispCurrentCity.text(`Current Weather | ${response.name}`) 
+        // Add response to the DOM - Current Weather
+        dispCurrentCity.text(`Current Weather | ${response.name}`)
+        dispCurrentTemp.text(`Temperature: ${response.main.temp}°F`)
+        dispCurrentHum.text(`Humidity: ${response.main.humidity}%`)
+        dispCurrentWind.text(`Wind Speed: ${response.wind.speed} MPH`)
+        dispCurrentUV.text(`UV Index: ${response.value}`)
     });
 };
 
@@ -50,8 +58,8 @@ function uvAjax (lat, lon) {
     $.ajax({
         url: uvURL + latlon,
         method: "GET"
-      }).then(function (response) {
-        console.log(response);
+      }).then(function (UVresponse) {
+        console.log('UV response', UVresponse);
     });
 };
 
