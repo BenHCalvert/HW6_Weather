@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,144 +9,151 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles.css">
 
-    <!-- Link Scripts -->
-    <script src="assets/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+
     <title>Weather</title>
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <!-- Nav Bar -->
-   
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Weather Dashboard</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">                
-            
-            <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="City" aria-label="Search" id="cityInput">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="search">Get Weather</button>
-            </form>
-            
-        </div>
-    </nav>
-<!-- Current Weather -->
-    <div class="row">
-        <div class="col-md-10">
+        <!-- Nav Bar -->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Weather Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="City" aria-label="Search" id="cityInput">
+                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="search">Get Weather</button>
+                </form>
+
+            </div>
+        </nav>
+        <!-- Current Weather -->
+        <div class="row">
+            <div class="col-md-10">
                 <div class="card">
-                <div class="card-body">
-                    <!-- Title -->
-                    <h5 class="card-title">Current Weather</h5>
-                    <!-- Content -->
-                    <p class="currenttemp">Temperature: </p>
-                    <p class="currenthum">Humidity: </p>
-                    <p class="currentwind">Wind Speed: </p>
-                    <p class="currentUV">UV Index: </p>
-                    
+                    <div class="card-body">
+                        <!-- Title -->
+                        <h5 class="card-title">Current Weather</h5>
+                        <!-- Content -->
+                        <p class="currenttemp">Temperature: </p>
+                        <p class="currenthum">Humidity: </p>
+                        <p class="currentwind">Wind Speed: </p>
+                        <p class="currentUV">UV Index: </p>
+
+                    </div>
                 </div>
-                </div>
             </div>
 
-    </div>
-    <div class="row"></div>
+        </div>
+        <div class="row"></div>
 
-    <!-- Search History - Fill Dynamically -->
-    <div class="row">
-        <div class=".col-md-3 no-float">
-            <nav class="flex-column">
-                <!-- Search History -->
-                <p id="cities"></p>
-                   
+        <!-- Search History - Fill Dynamically -->
+        <div class="row">
+            <div class=".col-md-3 no-float">
+                <nav class="flex-column">
+                    <!-- Search History -->
+                    <p id="cities"></p>
 
-            </nav>
-        </div>
-    <!-- cards go here -->
-        <div class="col-md-2">
-            <div class="card">
-            <div class="card-body">
-                <!-- Title -->
-                <h5 class="card-title date"> Date: </h5>
-                <!-- Content -->                
-                <p class="icon"></p>
-                <p class="forecasttemp">Temperature : </p>
-                <p class="forecasthum">Humidity: </p>
-                
+
+                </nav>
             </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card">
-            <div class="card-body">
-                <!-- Title -->
-                <h5 class="card-title date"> Date: </h5>
-                <!-- Content -->                
-                <p class="icon"></p>
-                <p class="forecasttemp">Temperature : </p>
-                <p class="forecasthum">Humidity: </p>
-                
-            </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card">
-            <div class="card-body">
-                <!-- Title -->
-                <h5 class="card-title date"> Date: </h5>
-                <!-- Content -->                
-                <p class="icon"></p>
-                <p class="forecasttemp">Temperature : </p>
-                <p class="forecasthum">Humidity: </p>
-                    
-            </div>
-        </div>
-        </div>
+            <!-- cards go here -->
             <div class="col-md-2">
-                    <div class="card">
+                <div class="card">
                     <div class="card-body">
                         <!-- Title -->
                         <h5 class="card-title date"> Date: </h5>
-                        <!-- Content -->                
+                        <!-- Content -->
                         <p class="icon"></p>
                         <p class="forecasttemp">Temperature : </p>
                         <p class="forecasthum">Humidity: </p>
-                        
+
                     </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Title -->
+                        <h5 class="card-title date"> Date: </h5>
+                        <!-- Content -->
+                        <p class="icon"></p>
+                        <p class="forecasttemp">Temperature : </p>
+                        <p class="forecasthum">Humidity: </p>
+
                     </div>
+                </div>
             </div>
-        <div class="col-md-2">
-            <div class="card">
-            <div class="card-body">
-                <!-- Title -->
-                <h5 class="card-title date"> Date: </h5>
-                <!-- Content -->                
-                <p class="icon"></p>
-                <p class="forecasttemp">Temperature : </p>
-                <p class="forecasthum">Humidity: </p>
-                
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Title -->
+                        <h5 class="card-title date"> Date: </h5>
+                        <!-- Content -->
+                        <p class="icon"></p>
+                        <p class="forecasttemp">Temperature : </p>
+                        <p class="forecasthum">Humidity: </p>
+
+                    </div>
+                </div>
             </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Title -->
+                        <h5 class="card-title date"> Date: </h5>
+                        <!-- Content -->
+                        <p class="icon"></p>
+                        <p class="forecasttemp">Temperature : </p>
+                        <p class="forecasthum">Humidity: </p>
+
+                    </div>
+                </div>
             </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Title -->
+                        <h5 class="card-title date"> Date: </h5>
+                        <!-- Content -->
+                        <p class="icon"></p>
+                        <p class="forecasttemp">Temperature : </p>
+                        <p class="forecasthum">Humidity: </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
         </div>
 
 
-        
 
-       
+
     </div>
-        
-        
-    
 
-</div>
-
-
- <!-- Bootstrap Scripts -->
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- link external js file -->
+    <script src="assets/script.js"></script>
 </body>
+
 </html>
