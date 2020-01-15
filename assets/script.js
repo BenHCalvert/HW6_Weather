@@ -40,7 +40,7 @@ $("#search").on('click', function () {
     event.preventDefault();
     let city = $('#cityInput').val();
     weatherAjax(city);
-    forecastAjax(city);
+    forecastRes(city);
 });
 
 // Current weather AJAX/Fx Call and UV Fx Call
@@ -67,7 +67,7 @@ function weatherAjax(city) {
 // date_txt/dt_txt --> field in the 5 day forecast with the day and military time. Isolate the time and filter by the time.
 // .split() <-- can give this a charecter on which to split, give this a space and aplit into an array of date and time
 // filter() set up a filter statement targeting the time and filter for objects with the same time, this will turn the forecast object 
-function forecastAjax(city) {
+var forecastRes = function forecastAjax(city) {
     $.ajax({
         url: forecastURL + city,
         method: "GET"
@@ -75,31 +75,8 @@ function forecastAjax(city) {
         let fiveDays = response.list.filter(function (obj) {
             return obj.dt_txt.split(' ')[1] === '15:00:00';
 
-            forecastDate1.text(`Date: ${response[0].dt_txt.split(' ')[0]}`)
-            forecastDate2.text(`Date: ${response[1].dt_txt.split(' ')[0]}`)
-            forecastDate3.text(`Date: ${response[2].dt_txt.split(' ')[0]}`)
-            forecastDate4.text(`Date: ${response[3].dt_txt.split(' ')[0]}`)
-            forecastDate5.text(`Date: ${response[4].dt_txt.split(' ')[0]}`)
-
-            forecastIcon1.response[0].weather.0.icon
-            forecastIcon2.response[1].weather.0.icon
-            forecastIcon3.response[2].weather.0.icon
-            forecastIcon4.response[3].weather.0.icon
-            forecastIcon5.response[4].weather.0.icon
-
-            forecastTemp1.text(`Temperature: ${response[0].main.temp}°F`);
-            forecastTemp2.text(`Temperature: ${response[1].main.temp}°F`);
-            forecastTemp3.text(`Temperature: ${response[2].main.temp}°F`);
-            forecastTemp4.text(`Temperature: ${response[3].main.temp}°F`);
-            forecastTemp5.text(`Temperature: ${response[4].main.temp}°F`);
-
-            forecastHum1.text(`Humidity: ${response[0].main.humidity}%`);
-            forecastHum2.text(`Humidity: ${response[1].main.humidity}%`);
-            forecastHum3.text(`Humidity: ${response[2].main.humidity}%`);
-            forecastHum4.text(`Humidity: ${response[3].main.humidity}%`);
-            forecastHum5.text(`Humidity: ${response[4].main.humidity}%`);
         });
-        console.log(fiveDays);
+        // console.log(fiveDays);
     });
 };
 
@@ -113,6 +90,32 @@ function uvAjax(lat, lon) {
         console.log('UV response', UVresponse);
     });
 };
+
+console.log('forecastRes: ', forecastRes)
+
+// forecastDate1.text(`Date: ${forecastRes[0].dt_txt.split(' ')[0]}`)
+// forecastDate2.text(`Date: ${forecastRes[1].dt_txt.split(' ')[0]}`)
+// forecastDate3.text(`Date: ${forecastRes[2].dt_txt.split(' ')[0]}`)
+// forecastDate4.text(`Date: ${forecastRes[3].dt_txt.split(' ')[0]}`)
+// forecastDate5.text(`Date: ${forecastRes[4].dt_txt.split(' ')[0]}`)
+
+// forecastIcon1.forecastRes[0].weather.0.icon;
+// forecastIcon2.forecastRes[1].weather.0.icon;
+// forecastIcon3.forecastRes[2].weather.0.icon;
+// forecastIcon4.forecastRes[3].weather.0.icon;
+// forecastIcon5.forecastRes[4].weather.0.icon;
+
+// forecastTemp1.text(`Temperature: ${forecastRes[0].main.temp}°F`);
+// forecastTemp2.text(`Temperature: ${forecastRes[1].main.temp}°F`);
+// forecastTemp3.text(`Temperature: ${forecastRes[2].main.temp}°F`);
+// forecastTemp4.text(`Temperature: ${forecastRes[3].main.temp}°F`);
+// forecastTemp5.text(`Temperature: ${forecastRes[4].main.temp}°F`);
+
+// forecastHum1.text(`Humidity: ${forecastRes[0].main.humidity}%`);
+// forecastHum2.text(`Humidity: ${forecastRes[1].main.humidity}%`);
+// forecastHum3.text(`Humidity: ${forecastRes[2].main.humidity}%`);
+// forecastHum4.text(`Humidity: ${forecastRes[3].main.humidity}%`);
+// forecastHum5.text(`Humidity: ${forecastRes[4].main.humidity}%`);
 
 // city history to local storage.
 function storeCity(city) {
